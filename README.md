@@ -23,7 +23,7 @@ This project aims to analyze crime data in Rio de Janeiro and provide insights u
 
 ### Technologies Used
 
-- Python, Pandas, Scikit-learn, Streamlit, Matplotlib, Datetime.
+- Python, Pandas, Scikit-learn, Streamlit, Matplotlib, Datetime, Folium.
 
 ### Contributors
 
