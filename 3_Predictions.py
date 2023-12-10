@@ -6,7 +6,6 @@ from sklearn.model_selection import train_test_split
 from streamlit_folium import folium_static
 from sklearn.ensemble import GradientBoostingRegressor
 import folium
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 st.set_page_config(page_title="Rio Crime",
                    page_icon=":knife:")
@@ -48,7 +47,7 @@ def main():
     st.title('Crime Count Prediction')
 
     data = load_data()
-    target_options = ['Attempted murder', 'Rape', 'Missing people', 'Homicides', 'Thefts', 'Kidnapping']
+    target_options = ['Attempted murder', 'Rape', 'Missing people', 'Homicides', 'Thefts']
     target = st.selectbox('Select target variable', target_options)
     
     areas_list = ['Bangu', 'Barra da Tijuca', 'Bonsucesso',
@@ -76,13 +75,6 @@ def main():
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
 
-        mae = mean_absolute_error(y_test, y_pred)
-        mse = mean_squared_error(y_test, y_pred)
-        r2 = r2_score(y_test, y_pred)
-   
-        st.write(f"Mean Absolute Error (MAE): {mae}")
-        st.write(f"Mean Squared Error (MSE): {mse}")
-        st.write(f"R-squared (R²): {r2}")
 
 if __name__ == "__main__":
     main()
